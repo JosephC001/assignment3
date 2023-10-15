@@ -1,0 +1,54 @@
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Contact</title>
+</head>
+<body>
+    <h1>Read Contact</h1>
+    <div style="color: Black; text-align: left;">
+    <a href="{% url 'menu' %}">Go Back to Menu</a>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id">Contact ID:</label>
+        <input type="text" name="id" id="id" required>
+        <input type="submit" value="View Contact">
+    </form>
+    {% if contact %}
+    <h2>Contact Information</h2>
+    <p>ID: {{ contact.id }}</p>
+    <p>Name: {{ contact.name }}</p>
+    <p>Address: {{ contact.address }}</p>
+    <p>Profession: {{ contact.profession }}</p>
+    <p>Telephone Number: {{ contact.telephone }}</p>
+    <p>Email: {{ contact.email }}</p>
+    {% endif %}
+</body>
+</html>
+-->
+
+<!-- myapp3/templates/myapp3/read_contact.html -->
+
+
+{% block content %}
+  <h2>Contact Details</h2>
+  <div style="color: Black; text-align: left;">
+  <a href="{% url 'menu' %}">Go Back to Menu</a>
+  </div>
+  <br>
+  <form method="post">
+  {% csrf_token %}
+  {{ form.contact_id.label_tag }}
+  {{ form.contact_id }}
+  <input type="submit" value="Read Contact">
+  <p><strong>Name:</strong> {{ contact.name }}</p>
+  <p><strong>Address:</strong> {{ contact.address }}</p>
+  <p><strong>Profession:</strong> {{ contact.profession }}</p>
+  <p><strong>Telephone:</strong> {{ contact.telephone }}</p>
+  <p><strong>Email:</strong> {{ contact.email }}</p>
+  <a href="{% url 'display_info' %}">Back to Contacts</a>
+{% endblock %}

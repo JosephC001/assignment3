@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <!-- Success message -->
+    <div style="background-color: green; color: white; text-align: center;">
+        Your edit was successful
+    </div>
+
+    <div style="color: Black; text-align: center;">
+    <a href="{% url 'menu' %}">Go Back to Menu</a>
+    </div>
+
+    <h1>{{ title }}</h1>
+    
+    <!-- Loop through and display all contacts -->
+    <ul>
+        {% for contact in contacts %}
+            <li>
+                Name: {{ contact.name }} <br> 
+                ID: {{ contact.id }} <br>
+                Email: {{ contact.email }}<br>
+                Phone Number: {{ contact.telephone }}<br>
+                Address: {{ contact.address }}<br>
+                Profession: {{ contact.profession }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
